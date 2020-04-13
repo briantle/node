@@ -44,3 +44,4 @@
 2020/04/13 14:09:20 [error] 23156#6748: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:3000/", host: "localhost"
 2020/04/13 14:09:21 [error] 23156#6748: *1 no live upstreams while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", upstream: "http://localhost/favicon.ico", host: "localhost", referrer: "http://localhost/"
 2020/04/13 14:10:42 [notice] 21848#21876: signal process started
+2020/04/13 16:05:31 [emerg] 16376#13384: CreateDirectory() "D:\Angular NodeJS Training\Node JS\Certification Project\nodejs certification project\node\backend\nginx-1.16.1/temp/client_body_temp" failed (3: The system cannot find the path specified)

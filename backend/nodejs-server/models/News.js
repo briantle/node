@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const SportSchema = new mongoose.Schema({
+const NewsSchema = new mongoose.Schema({
     title: { type: String, required: true },
     description: { type: String, required: true }
 }, {
     timestamps: true
 })
 
-const Sport = mongoose.model('Sport', SportSchema);
+const News = mongoose.model('News', NewsSchema);
 
-module.exports = Sport;
+module.exports = News;
