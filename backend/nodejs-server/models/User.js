@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const bcryptjs = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose')
+const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -23,7 +23,7 @@ UserSchema.methods.generateToken = function () {
 
     const token = jwt.sign(payload, 'abcd1234')
 
-    return token;
+    return token
 }
 
 UserSchema.methods.generateUserObject = function () {
@@ -35,7 +35,7 @@ UserSchema.methods.generateUserObject = function () {
 }
 
 UserSchema.methods.generatePasswordHash = function (password) {
-    const salt = bcryptjs.genSaltSync(10);
+    const salt = bcryptjs.genSaltSync(10)
     const passwordHash = bcryptjs.hashSync(password, salt);
 
     this.password = passwordHash;
@@ -43,4 +43,4 @@ UserSchema.methods.generatePasswordHash = function (password) {
 
 const User = mongoose.model('User', UserSchema);
 
-module.exports = User;
+module.exports = User

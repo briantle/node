@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\nodejs-server",
+    "\\backend\\nodejs-server\\middlewares",
+    "\\backend\\nodejs-server\\models",
+    "\\backend\\nodejs-server\\routes"
+  ],
+  "SelectedNode": "\\backend\\nodejs-server\\routes\\weathers.js",
+  "PreviewInSolutionExplorer": false
+}
