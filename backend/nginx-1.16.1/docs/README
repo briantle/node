@@ -1,3 +1,9 @@
+TO START THE NGINX REVERSE PROXY SERVER
+1. Open the nginx-1.16.1 folder and open in cmd prompt.
+2. Use "start nginx" to start the proxy server
+3. Use "nginx -s stop" to stop the server
+
 
 Documentation is available at http://nginx.org
+
 
