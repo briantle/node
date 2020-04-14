@@ -16,6 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NewsEditComponent } from './components/news-edit/news-edit.component';
     RegisterComponent,
     AddNewsComponent,
     NewsListComponent,
-    NewsEditComponent
+    NewsEditComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
