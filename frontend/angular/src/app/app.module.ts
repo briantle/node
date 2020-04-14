@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AgmCoreModule } from '@agm/core';
 
 //fake backend
 import { fakeBackendProvider } from './_helpers';
@@ -17,6 +18,8 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AddNewsComponent,
     NewsListComponent,
     NewsEditComponent,
-    FooterComponent
+    FooterComponent,
+    ContactUsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,10 @@ import { FooterComponent } from './components/footer/footer.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCz46jc1QeCuXMLiED4EwqFWZClSgvj8PI'
+    })
 
   ],
   providers: [
