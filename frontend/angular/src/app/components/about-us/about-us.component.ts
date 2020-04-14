@@ -8,20 +8,20 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AboutUsComponent implements OnInit {
 
-  lat:any;
-  lng:any;
+  lat: number = 42.073100;
+  lng: number = -83.212700;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  if (navigator)
-    {
-    navigator.geolocation.getCurrentPosition( pos => {
-        this.lng = +pos.coords.longitude;
-        this.lat = +pos.coords.latitude;
-      });
-    }
+  // if (navigator)
+  //   {
+  //   navigator.geolocation.getCurrentPosition( pos => {
+  //       this.lng = +pos.coords.longitude;
+  //       this.lat = +pos.coords.latitude;
+  //     });
+  //   }
 
 }
