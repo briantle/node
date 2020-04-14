@@ -16,7 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
-import { ChatBoxComponent } from './components/chat-box/chat-box.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { ChatBoxComponent } from './components/chat-box/chat-box.component';
     AddNewsComponent,
     NewsListComponent,
     NewsEditComponent,
-    ChatBoxComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
