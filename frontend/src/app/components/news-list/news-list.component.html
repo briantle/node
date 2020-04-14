@@ -1,0 +1,43 @@
+             <div class="container">
+                        <div>
+                          <a href="/addnews" class="btn btn-success" role="button">Add new</a>
+                        </div>
+                        <div class="search-hero">
+                            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="search...">
+                        </div>
+                <h3>News List</h3>
+                <div class="table-responsive">
+                  <div class="col">
+                  <table class="table table-hover table-striped" id="myTable">
+                    <caption>List of News</caption>
+                  <thead class = "thead-dark">
+                    <tr>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Published At</th>
+                      <th>Edit/Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let new of news | filter:searchText">
+                    <td>{{new.title}}</td>
+                    <td>{{new.description}}</td>
+                    <td>{{new.publishedAt}}</td>
+                    <td>
+                    <button [routerLink] ="['/editnews/, new.id']" class="btn btn-info">Edit</button>
+                      <button class="btn btn-danger" (click)="handleDelete()">Delete</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                  <tfoot class="thead-dark">
+                    <tr>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Published At</th>
+                      <th>Edit/Delete</th>
+                    </tr>
+                  </tfoot>
+                </table>
+            </div>
+            </div>
+            </div>
