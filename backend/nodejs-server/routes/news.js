@@ -10,12 +10,15 @@ router.get('/', (req, res) => {
 })
 
 router.post('/add', (req, res) => {
-    const { title, description } = req.body
+    const { title, description, url, imgurl, publishedAt } = req.body
 
     const news = new News();
 
     news.title = title;
     news.description = description;
+    news.url = url
+    news.imgurl = imgurl
+    news.publishedAt = publishedAt
 
     news.save()
         .then(news => res.json(news))
