@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Server</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-md-10">
+                <h4>Messages</h4>
+                <ul id="chat" class="list-group">
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h4>Users</h4>
+                <ul id="users" class="list-group">
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="position: absolute; bottom: 0; width: 80%">
+            <div class="card-body">
+                <form id="msgForm">
+                    <input type="text" id="msg" class="form-control" placeholder="Type Here...">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+    </script>
+
+    <!-- script at the bottom so the html renders first, then scripts follow-->
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+        $(function () {
+            const socket = io() //connection to the server.
+            let user = prompt('Enter User Name:');
+
+            while (user == null) {
+                user = prompt('Enter User Name:');
+            }
+
+            socket.emit('New User Added', user);
+
+            socket.on('Update Users', (user) => {
+                $('#users').append(`
+                <li class="list-group-item">
+                ${user}</li>
+                `)
+            })
+
+            socket.on('Server Message', (msg) => {
+                //console.log(msg.user, msg.text);
+                $('#chat').append(`
+                    <li class="list-group-item">
+                        <strong>${msg.user}</strong>
+                        <p>${msg.text}</p>
+                        <small style="float:right">${msg.time}</small>
+                    </li>
+                `)
+            })
+
+            $('#msgForm').submit(() => {
+                let hour = new Date().getHours();
+                let minute = new Date().getMinutes();
+                let ampm = '';
+
+                if(hour < 12) {
+                    ampm = 'AM';
+                }
+                else {
+                    ampm = 'PM';
+                }
+
+                if (minute < 10) {
+                    minute = "0" + minute.toString();
+                }
+
+                let currentTime = (hour % 12).toString() + ":" + minute + " " + ampm;
+
+                const msg = {
+                    text: $('#msg').val(),
+                    user: user,
+                    time: currentTime
+                }
+                socket.emit('Client Message', msg);
+                $('#msg').val(''); //This will clear the message after sending
+                return false;
+            })
+        })
+    </script>
+
+</body>
+</html>
