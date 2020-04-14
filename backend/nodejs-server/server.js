@@ -9,12 +9,12 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 io.on('connection', (socket) => {
-    socket.on('New User Added', (user) => {
-        io.emit('Update Users', user);
+    socket.on('entered message', (msg) => {
+        io.emit('passing message', msg);
     })
 
-    socket.on('Client Message', (msg) => {
-        io.emit('Server Message', msg);
+    socket.on('new user', (user) => {
+        io.emit('update users', user);
     })
 });
 

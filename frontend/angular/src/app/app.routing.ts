@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
+import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 import { AuthGuard } from './_helpers';
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'addnews', component: AddNewsComponent },
     { path: 'newslist', component: NewsListComponent },
     { path: 'editnews', component: NewsEditComponent },
+    { path: 'chat', component: ChatBoxComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

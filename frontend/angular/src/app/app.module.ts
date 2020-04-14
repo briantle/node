@@ -17,6 +17,7 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AddNewsComponent,
     NewsListComponent,
     NewsEditComponent,
-    FooterComponent
+    FooterComponent,
+    ChatBoxComponent
   ],
   imports: [
     BrowserModule,
