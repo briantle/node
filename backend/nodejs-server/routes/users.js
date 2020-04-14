@@ -9,11 +9,9 @@ router.get('/temp', (req, res) => {
         .then(users => res.json(users))
 })
 // When user clicks on register button
-router.post("/register", (req, res) => {
+router.post("users/register", (req, res) => {
     const {name, email, password} = req.body
-    // This is temporary, don't know how you guys want the username to be made
     const username = email
-    password = generatePasswordHash(password)
 
     const user = new User()
     user.name = name
@@ -21,17 +19,34 @@ router.post("/register", (req, res) => {
     user.username = username
     user.password = password
 
+    user.generatePasswordHash(user.password)
+
     user.save()
-        .then(user => res.json(user))
+        .then(newUser => res.json(newUser.generateUserObject()))
         .catch(err => res.status(400).json(err))
 
 })
 
-function generatePasswordHash (password) {
-    const salt = bcryptjs.genSaltSync(10)
-    const passwordHash = bcryptjs.hashSync(password, salt);
-
-    return passwordHash;
-}
+router.post("users/login", (req, res) => 
+{
+    const {username, password} = req.body
+    User.findOne({username }
+        .then(user =>
+        {
+            // User exists in database
+            if (user)
+            {
+                // Compare password
+                if (user.comparePassword(password))
+                    res.json(user.generateUserObject())
+                else
+                    res.status(401).json({msg: "Invalid Credentials: Invalid Password"})
+            }
+            else
+            {
+                res.status(401).json({msg: "Invalid Credentials: Invalid Username"})
+            }
+        }))
+})
 
 module.exports = router
