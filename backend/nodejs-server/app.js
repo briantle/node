@@ -22,6 +22,6 @@ app.use(bodyParser.json())
 
 app.use('/news', newsRoutes);
 app.use('/contactus', queryRoutes);
-app.use("/user", userRoutes)
+app.use("/users", userRoutes)
 
 module.exports = app;
