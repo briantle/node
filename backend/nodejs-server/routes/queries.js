@@ -3,7 +3,13 @@ const router = express.Router()
 
 const Query = require('../models/Query')
 
-router.post('/', (req, res) => {
+router.get("/", (req, res) => {
+    Query.find()
+        .then(queries => res.json(queries))
+        .catch(err => res.status(400).json(err))
+})
+
+router.post('/add', (req, res) => {
     const { email, query } = req.body
 
     const contactQuery = new Query();

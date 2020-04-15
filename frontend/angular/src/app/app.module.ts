@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AgmCoreModule } from '@agm/core';
 
 //fake backend
 import { fakeBackendProvider } from './_helpers';
@@ -17,7 +18,12 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
+<<<<<<< HEAD
 import { SportsComponent } from './components/sports/sports.component';
+=======
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+>>>>>>> 4fc29e44543646e849cf0ac0a1a0df48a60755dc
 
 @NgModule({
   declarations: [
@@ -29,7 +35,12 @@ import { SportsComponent } from './components/sports/sports.component';
     NewsListComponent,
     NewsEditComponent,
     FooterComponent,
+<<<<<<< HEAD
     SportsComponent
+=======
+    ContactUsComponent,
+    AboutUsComponent
+>>>>>>> 4fc29e44543646e849cf0ac0a1a0df48a60755dc
   ],
   imports: [
     BrowserModule,
@@ -37,7 +48,10 @@ import { SportsComponent } from './components/sports/sports.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCz46jc1QeCuXMLiED4EwqFWZClSgvj8PI'
+    })
 
   ],
   providers: [

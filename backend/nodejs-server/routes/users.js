@@ -9,7 +9,7 @@ router.get('/temp', (req, res) => {
         .then(users => res.json(users))
 })
 // When user clicks on register button
-router.post("users/register", (req, res) => {
+router.post("/register", (req, res) => {
     const {name, email, password} = req.body
     const username = email
 
@@ -27,10 +27,10 @@ router.post("users/register", (req, res) => {
 
 })
 
-router.post("users/login", (req, res) => 
+router.post("/login", (req, res) => 
 {
     const {username, password} = req.body
-    User.findOne({username }
+    User.findOne({username: username})
         .then(user =>
         {
             // User exists in database
@@ -44,9 +44,9 @@ router.post("users/login", (req, res) =>
             }
             else
             {
-                res.status(401).json({msg: "Invalid Credentials: Invalid Username"})
+                res.status(401).json({msg: "Invalid Credentials: Invalid Username: [" + user.username + "]"})
             }
-        }))
+        })
 })
 
 module.exports = router

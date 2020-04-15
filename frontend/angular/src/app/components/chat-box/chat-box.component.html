@@ -1,1 +1,43 @@
-<p>chat-box works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Box</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row mt-2">
+      <div class="col-md-10">
+        <h4>Messages</h4>
+        <ul id="chat" class="list-group" *ngFor="let msg of messages">
+          <li class="list-group-item">
+            <b>{{ msg.username }}</b>
+            <br />
+            {{ msg.msg }}
+          <small class="float-right">{{ msg.time }}</small>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <h4>Users</h4>
+        <ul id="users" class="list-group" *ngFor="let user of users">
+          <li class="list-group-item">
+            {{ user }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <form id="msgForm" (submit)="onSubmit()">
+          <input type="text" id="msg" name="message" class="form-control" placeholder="Type Here..." [(ngModel)]="message">
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
