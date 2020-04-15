@@ -18,8 +18,10 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SportsComponent } from './components/sports/sports.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,10 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     NewsListComponent,
     NewsEditComponent,
     FooterComponent,
+    SportsComponent,
     ContactUsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ChatBoxComponent
   ],
   imports: [
     BrowserModule,

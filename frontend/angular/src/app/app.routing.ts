@@ -9,6 +9,9 @@ import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AuthGuard } from './_helpers';
+import { SportsComponent } from './components/sports/sports.component';
+import { ChatBoxComponent } from './components/chat-box/chat-box.component';
+
 
 
 const routes: Routes = [
@@ -20,6 +23,8 @@ const routes: Routes = [
     { path: 'editnews', component: NewsEditComponent },
     { path: 'aboutus', component: AboutUsComponent },
     { path: 'contactus', component: ContactUsComponent },
+    { path: 'sports', component: SportsComponent },
+    { path: 'chat', component: ChatBoxComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
