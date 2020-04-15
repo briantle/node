@@ -58,7 +58,14 @@ export class ChatBoxComponent implements OnInit {
       minuteString = minute.toString();
     }
 
-    let currentTime = (hour % 12).toString() + ":" + minuteString + " " + ampm;
+    if (hour % 12 === 0) {
+      hour = 12;
+    }
+    else {
+      hour = hour % 12;
+    }
+
+    let currentTime = hour.toString() + ":" + minuteString + " " + ampm;
     return currentTime;
   }
 
