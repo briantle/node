@@ -17,6 +17,7 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SportsComponent } from './components/sports/sports.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AddNewsComponent,
     NewsListComponent,
     NewsEditComponent,
-    FooterComponent
+    FooterComponent,
+    SportsComponent
   ],
   imports: [
     BrowserModule,
