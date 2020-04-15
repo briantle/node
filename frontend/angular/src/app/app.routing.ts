@@ -24,7 +24,7 @@ const routes: Routes = [
     { path: 'aboutus', component: AboutUsComponent },
     { path: 'contactus', component: ContactUsComponent },
     { path: 'sports', component: SportsComponent },
-    { path: 'chat', component: ChatBoxComponent }
+    { path: 'chat', component: ChatBoxComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
