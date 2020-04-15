@@ -10,7 +10,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class NewsEditComponent implements OnInit {
 
-  id;
+  _id;
   title;
   description;
   publishedAt;
@@ -20,24 +20,20 @@ export class NewsEditComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-
-    this.newsService.getById(this.id).subscribe(news => {
-      this.title = news.title;
-      this.description = news.description;
-      this.publishedAt = news.publishedAt;
-    });
+    this._id = this.route.snapshot.params.id
   }
 
   onEditSubmit(){
-    let news = {
+    const news = {
         title: this.title,
         description: this.description,
         publishedAt: this.publishedAt
     }
 
-    this.newsService.update(this.id, news);
-    this.router.navigate(['/newslist']);
+    console.log("what is the id: " + this._id)
+
+    this.newsService.update(this._id, news).subscribe();
+    this.router.navigate(['/']);
   }
 
 }

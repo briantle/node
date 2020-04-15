@@ -9,13 +9,15 @@ router.get('/temp', (req, res) => {
         .then(users => res.json(users))
 })
 // When user clicks on register button
-router.post("/register", (req, res) => {
-    const {name, email, password} = req.body
-    const username = email
+router.post("/register", (req, res) => 
+{
+    const {firstName, lastName, username, password} = req.body
+
+    console.log(req.body)
 
     const user = new User()
-    user.name = name
-    user.email = email
+    user.firstname = firstName
+    user.lastname = lastName
     user.username = username
     user.password = password
 
@@ -24,10 +26,9 @@ router.post("/register", (req, res) => {
     user.save()
         .then(newUser => res.json(newUser.generateUserObject()))
         .catch(err => res.status(400).json(err))
-
 })
 
-router.post("/login", (req, res) => 
+router.post("/authenticate", (req, res) => 
 {
     const {username, password} = req.body
     User.findOne({username: username})

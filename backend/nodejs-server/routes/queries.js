@@ -10,7 +10,13 @@ router.get("/", (req, res) => {
 })
 
 router.post('/add', (req, res) => {
+
+    console.log("in contact add")
+
     const { email, query } = req.body
+
+    console.log("body: " + req.body)
+
 
     const contactQuery = new Query();
 

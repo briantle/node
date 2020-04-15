@@ -20,7 +20,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'addnews', component: AddNewsComponent },
     { path: 'newslist', component: NewsListComponent },
-    { path: 'editnews', component: NewsEditComponent },
+    { path: 'editnews/:id', component: NewsEditComponent },
     { path: 'aboutus', component: AboutUsComponent },
     { path: 'contactus', component: ContactUsComponent },
     { path: 'sports', component: SportsComponent },
