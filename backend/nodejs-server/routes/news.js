@@ -32,4 +32,25 @@ router.get("/latestNews", (req, res) => {
     })
 })
 
+router.delete("/:id", (req, res) => {
+    News.findOneAndDelete({"id": req.params.id}, (err, result) => {
+        res.send("Deleted")
+    })
+})
+
+router.put("/:id", (req, res) => {
+    const {title, description, publishedAt} = req.body
+    const id = req.params.id
+
+    News.findByIdAndUpdate({"id": id}
+                            , {"title": title, "description": description, "publishedAt": publishedAt}
+                            , (err, result) => {
+                                if (err)
+                                    res.send(err)
+                                // This will show the matched record, not the updated one
+                                else
+                                    res.send(result)
+                            })
+})
+
 module.exports = router
