@@ -20,6 +20,7 @@ import { SportsComponent } from './components/sports/sports.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ChatBoxComponent } from './components/chat-box/chat-box.component';
+import { NewsItemComponent } from './components/news-list/news-item/news-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ChatBoxComponent } from './components/chat-box/chat-box.component';
     SportsComponent,
     ContactUsComponent,
     AboutUsComponent,
-    ChatBoxComponent
+    ChatBoxComponent,
+    NewsItemComponent
   ],
   imports: [
     BrowserModule,

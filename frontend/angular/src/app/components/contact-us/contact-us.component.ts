@@ -20,12 +20,20 @@ export class ContactUsComponent implements OnInit {
   }
 
   addNewQuery() {
+
+    console.log("form email: " + this.email)
+    console.log("form query: " + this.query)
+
     const data = {
       email: this.email,
       query: this.query
     }
-    console.log(data);
-    this.contactUsService.addQuery(data).subscribe(() => {
+    console.log("[" + data + "]");
+
+
+    console.log("email: " + data.email)
+
+    this.contactUsService.addNewQuery(data).subscribe(() => {
       this.router.navigate([''])
       this.showMsg= true;
     },

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { News } from '../models/news';
 
-const apiUrl = 'http://localhost'
+const apiUrl = 'http://localhost:4000/news'
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +16,20 @@ export class NewsService {
     return this.http.get<News[]>(apiUrl);
 }
 
-getById(id: number): Observable<News> {
+getById(id: any): Observable<News> {
   return this.http.get<News>(apiUrl + '/newslist' + id);
 }
 
 update(id, news) {
-  return this.http.put(apiUrl + '/newslist' + id, news);
+  return this.http.put(apiUrl + '/' + id, news);
 }
 
 
 addNews(data: any) {
-  return this.http.post(apiUrl, data);
+  return this.http.post(apiUrl + "/add", data);
 }
 
-delete(id: number) {
-    return this.http.delete(apiUrl + '/newslist' + id);
+delete(id: any) {
+    return this.http.delete(apiUrl + "/" + id);
 }
 }

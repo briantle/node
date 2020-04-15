@@ -21,8 +21,8 @@
                     <td>{{new.description}}</td>
                     <td>{{new.publishedAt}}</td>
                     <td>
-                    <button [routerLink] ="['/editnews/, new.id']" class="btn btn-info">Edit</button>
-                      <button class="btn btn-danger" (click)="handleDelete()">Delete</button>
+                      <app-news-item [newsItem] = "new"></app-news-item>
+
                     </td>
                   </tr>
                   </tbody>

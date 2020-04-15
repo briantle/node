@@ -10,14 +10,14 @@ router.get('/', (req, res) => {
 })
 
 router.post('/add', (req, res) => {
-    const { title, description, url, imgurl, publishedAt } = req.body
+    const { title, description, url, urlToImage, publishedAt } = req.body
 
     const news = new News();
 
     news.title = title;
     news.description = description;
     news.url = url
-    news.imgurl = imgurl
+    news.imgurl = urlToImage
     // Should be in the format: yyyy-mm-dd (EX. 2001-04-16)
     news.publishedAt = new Date(publishedAt)
 
@@ -33,16 +33,21 @@ router.get("/latestNews", (req, res) => {
 })
 
 router.delete("/:id", (req, res) => {
-    News.findOneAndDelete({"id": req.params.id}, (err, result) => {
-        res.send("Deleted")
+
+    News.findOneAndDelete({"_id": req.params.id}, (err, result) => {
+        if (err)
+            res.send(err)
+        else
+            res.send(result)
     })
 })
 
 router.put("/:id", (req, res) => {
+    console.log("in update")
     const {title, description, publishedAt} = req.body
     const id = req.params.id
 
-    News.findByIdAndUpdate({"id": id}
+    News.findByIdAndUpdate({"_id": id}
                             , {"title": title, "description": description, "publishedAt": publishedAt}
                             , (err, result) => {
                                 if (err)

@@ -1,6 +1,6 @@
 export class News {
 
-    id: number;
+    _id: number;
     title: string;
 	description: string;
 	url: string;
@@ -9,7 +9,7 @@ export class News {
     
     constructor(id, title, description, url, urlToImage, publishedAt) {
 
-        this.id = id;
+        this._id = id;
         this.title = title;
         this.description = description;
         this.url = url;
