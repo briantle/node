@@ -7,6 +7,7 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AuthGuard } from './_helpers';
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'newslist', component: NewsListComponent },
     { path: 'editnews', component: NewsEditComponent },
     { path: 'aboutus', component: AboutUsComponent },
+    { path: 'contactus', component: ContactUsComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
