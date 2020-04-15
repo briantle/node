@@ -50,7 +50,7 @@ onSubmit() {
 
     this.loading = true;
     this.userService.register(this.registerForm.value)
-        .pipe(first())
+        //.pipe(first())
         .subscribe(
             data => {
                 this.router.navigate(['/login'], { queryParams: { registered: true }});
