@@ -3,8 +3,8 @@ const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const UserSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    firstname: { type: String, required: true },
+    lastname: { type: String, required: true },
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true }
 }, {
@@ -17,7 +17,8 @@ UserSchema.methods.comparePassword = function (password) {
 
 UserSchema.methods.generateToken = function () {
     const payload = {
-        email: this.email,
+        firstname: this.firstname,
+        lastname: this.lastname,
         username: this.username
     }
 
@@ -29,7 +30,6 @@ UserSchema.methods.generateToken = function () {
 UserSchema.methods.generateUserObject = function () {
     return {
         username: this.username,
-        email: this.email,
         token: this.generateToken()
     }
 }
