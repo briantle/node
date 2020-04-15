@@ -1,12 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend",
     "\\backend\\nodejs-server",
     "\\backend\\nodejs-server\\middlewares",
     "\\backend\\nodejs-server\\models",
-    "\\backend\\nodejs-server\\routes"
+    "\\backend\\nodejs-server\\routes",
+    "\\frontend",
+    "\\frontend\\angular",
+    "\\frontend\\angular\\src",
+    "\\frontend\\angular\\src\\app",
+    "\\frontend\\angular\\src\\app\\components"
   ],
-  "SelectedNode": "\\backend\\nodejs-server\\routes\\weathers.js",
+  "SelectedNode": "\\frontend\\angular\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
