@@ -18,12 +18,9 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
-<<<<<<< HEAD
 import { SportsComponent } from './components/sports/sports.component';
-=======
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
->>>>>>> 4fc29e44543646e849cf0ac0a1a0df48a60755dc
 
 @NgModule({
   declarations: [
@@ -35,12 +32,9 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     NewsListComponent,
     NewsEditComponent,
     FooterComponent,
-<<<<<<< HEAD
-    SportsComponent
-=======
+    SportsComponent,
     ContactUsComponent,
     AboutUsComponent
->>>>>>> 4fc29e44543646e849cf0ac0a1a0df48a60755dc
   ],
   imports: [
     BrowserModule,

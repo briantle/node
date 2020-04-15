@@ -8,6 +8,8 @@ import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { AuthGuard } from './_helpers';
+import { SportsComponent } from './components/sports/sports.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,8 @@ const routes: Routes = [
     { path: 'newslist', component: NewsListComponent },
     { path: 'editnews', component: NewsEditComponent },
     { path: 'aboutus', component: AboutUsComponent },
+    { path: 'contactus', component: ContactUsComponent },
+    { path: 'sports', component: SportsComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
