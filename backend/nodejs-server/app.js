@@ -7,7 +7,7 @@ const newsRoutes = require('./routes/news');
 const queryRoutes = require('./routes/queries');
 const userRoutes = require("./routes/users")
 
-mongoose.connect(
+mongoose.connect( 
     process.env.MONGODB_URL,
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => console.log('DB Connected')
