@@ -59,4 +59,12 @@ router.put("/:id", (req, res) => {
                             })
 })
 
+router.get('/newslist/:id', (req, res) => { 
+    const id = req.params.id
+    
+    News.findById({"_id": id})
+        .then(news => res.json(news))
+        .catch(err => res.status(400).json(err))
+})
+
 module.exports = router

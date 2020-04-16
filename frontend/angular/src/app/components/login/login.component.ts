@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     returnUrl: string;
     error: string;
     success: string;
+    loginCheck: Boolean
 
   constructor(
     private formBuilder: FormBuilder,
@@ -71,5 +72,27 @@ onSubmit() {
                 this.error = error;
                 this.loading = false;
             });
+}
+
+logout(){
+  this.authenticationService.logout()
+  this.router.navigate(["/login"])
+}
+
+getCurrentUser() {
+  this.authenticationService.currentUser.subscribe(data => {
+    if(data != null) {
+      if(data.username != null) {
+        this.loginCheck = true
+      }
+      else {
+        this.loginCheck = false;
+      }
+    }
+    else {
+      this.loginCheck = false;
+    }
+  });
+  return this.loginCheck;
 }
 }
