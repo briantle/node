@@ -3,6 +3,7 @@ import { HttpClient} from '@angular/common/http';
 import { AuthenticationService } from 'src/app/_services';
 import { Router } from '@angular/router';
 import { WebSocketService } from 'src/app/_services/web-socket.service';
+import { NewsService } from 'src/app/_services/news.service';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,8 @@ export class HomeComponent implements OnInit {
   temp = 0.0
   city = ""
 
+  latestNews: any
+
   username: string = '';
   message: string = '';
   @Input() messages: any[] = [];
@@ -25,8 +28,13 @@ export class HomeComponent implements OnInit {
   apikey = "f1acae29578b3e0eb189dd6cf97306c3"
 
 
-  constructor(private http: HttpClient, private auth: AuthenticationService, private router: Router, private webSocketService: WebSocketService) 
+  constructor(private http: HttpClient, private newsServ: NewsService, private auth: AuthenticationService, private router: Router, private webSocketService: WebSocketService) 
   {
+
+    this.newsServ.getLatestNews().subscribe(data => {
+      this.latestNews = data
+    })
+
     if (navigator)
     {
       navigator.geolocation.getCurrentPosition( pos => {

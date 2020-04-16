@@ -46,22 +46,33 @@
   
   
         </div> -->
-  
-        <div>{{city}}</div>
-        <div>{{description}}</div>
-        <div>{{temp}} <span>&#8457;</span> </div>
+        <h2 align = "center">Weather</h2>
+        <h4>
+          <div align = "center">City: {{city}}</div>
+          <div align = "center">Description:  {{description}}</div>
+          <div align = "center">Temperature: {{temp}} <span>&#8457;</span> </div>
+        </h4> <br> <hr>
 
 
-      
-        <div id="slideshow">
-          <div class="slide-wrapper">
-            <div class="slide"><div class="info top-left"><h3>Top 10 National Parks</h3><img src="https://live.staticflickr.com/65535/49772305242_fddd327945_h.jpg" /></div></div>
-            <div class="slide"><div class="info top-left"><h3>Places to Visit in Spain</h3><img src="https://live.staticflickr.com/65535/49740338646_8a84ea122c_h.jpg" /></div></div>
-            <div class="slide"><div class="info top-left"><h3>How to Bake your own Bread</h3><img  src="https://live.staticflickr.com/327/19535227112_1082777a7f_h.jpg" /></div></div>
-            <div class="slide"><div class="info top-left"><h3>2020 Olympics Delayed</h3><img src="https://live.staticflickr.com/3901/15154893077_263051cf0b_b.jpg" /></div></div>
-          </div>
+
+
+      <div id="slideshow">
+        <div class="slide-wrapper">
+          <div class="slide"><div class="info top-left"><h3>Top 10 National Parks</h3><img src="https://live.staticflickr.com/65535/49772305242_fddd327945_h.jpg" /></div></div>
+          <div class="slide"><div class="info top-left"><h3>Places to Visit in Spain</h3><img src="https://live.staticflickr.com/65535/49740338646_8a84ea122c_h.jpg" /></div></div>
+          <div class="slide"><div class="info top-left"><h3>How to Bake your own Bread</h3><img  src="https://live.staticflickr.com/327/19535227112_1082777a7f_h.jpg" /></div></div>
         </div>
-<br><br><br>
+      </div>
+
+      <br><br><br>
+      <hr>
+      <div *ngFor = "let news of latestNews">
+          <div class="info top-left"><h3>{{news.title}}</h3></div>
+          <div><h5>{{news.description}}</h5></div>
+      </div>
+      
+
+<br>
 
 <div class="container">
   <div class="row mt-2">
