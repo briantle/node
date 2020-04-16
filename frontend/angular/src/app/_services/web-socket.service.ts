@@ -10,7 +10,7 @@ export class WebSocketService {
   socket: any;
 
   constructor() {
-    this.socket = io('http://localhost:3000'); //change ws://localhost:3000 to the nginx server when set up
+    this.socket = io('http://localhost:4000'); //change ws://localhost:3000 to the nginx server when set up
   }
 
   listen(eventName: string) {
