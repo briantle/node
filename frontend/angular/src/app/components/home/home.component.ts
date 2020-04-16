@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
 
   latestNews: any
 
+  loginCheck: Boolean
+
   username: string = '';
   message: string = '';
   @Input() messages: any[] = [];
@@ -62,19 +64,6 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    console.log(this.getUsername())
-
-    this.username = this.getUsername().split('"')[3];
-    this.webSocketService.listen('passing message').subscribe((msg) => {
-      this.messages.push(msg);
-    })
-    this.webSocketService.emit('new user', this.username);
-    this.webSocketService.listen('update users').subscribe(user => {
-      if (!this.users.includes(user)) {
-        this.users.push(user);
-      }
-    })
   }
 
 
@@ -83,50 +72,21 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/login"])
   }
 
-
-  onSubmit() {
-    const data = {
-      username: this.username,
-      msg: this.message,
-      time: this.getCurrentTime()
-    }
-    this.webSocketService.emit('entered message', data);
-    this.message = '';
-  }
-
-  getCurrentTime() {
-    let hour = new Date().getHours();
-    let minute = new Date().getMinutes();
-    let ampm = '';
-    let minuteString = '';
-
-    if (hour < 12) {
-      ampm = 'AM';
-    }
-    else {
-      ampm = 'PM';
-    }
-
-    if (minute < 10) {
-      minuteString = "0" + minute.toString();
-    }
-    else {
-      minuteString = minute.toString();
-    }
-
-    if (hour % 12 === 0) {
-      hour = 12;
-    }
-    else {
-      hour = hour % 12;
-    }
-
-    let currentTime = hour.toString() + ":" + minuteString + " " + ampm;
-    return currentTime;
-  }
-
-  getUsername() {
-    return localStorage.getItem('currentUser');
+  getCurrentUser() {
+    this.auth.currentUser.subscribe(data => {
+      if(data != null) {
+        if(data.username != null) {
+          this.loginCheck = true
+        }
+        else {
+          this.loginCheck = false;
+        }
+      }
+      else {
+        this.loginCheck = false;
+      }
+    });
+    return this.loginCheck;
   }
 
 }

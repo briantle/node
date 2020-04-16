@@ -21,6 +21,12 @@ export class NewsEditComponent implements OnInit {
 
   ngOnInit(): void {
     this._id = this.route.snapshot.params.id
+
+    this.newsService.getById(this._id).subscribe(data => {
+      this.title = data.title;
+      this.description = data.description;
+      this.publishedAt = data.publishedAt;
+    })
   }
 
   onEditSubmit(){

@@ -9,13 +9,32 @@ import { AuthenticationService } from 'src/app/_services';
 })
 export class SportsComponent implements OnInit {
   
-  constructor(private auth: AuthenticationService, private router: Router) { }
+  loginCheck: Boolean
 
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
   }
   logout(){
     this.auth.logout()
     this.router.navigate(["/login"])
+  }
+
+  
+  getCurrentUser() {
+    this.auth.currentUser.subscribe(data => {
+      if(data != null) {
+        if(data.username != null) {
+          this.loginCheck = true
+        }
+        else {
+          this.loginCheck = false;
+        }
+      }
+      else {
+        this.loginCheck = false;
+      }
+    });
+    return this.loginCheck;
   }
 }

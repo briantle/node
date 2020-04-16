@@ -14,15 +14,18 @@ export class ContactUsComponent implements OnInit {
   email: string = '';
   query: string = '';
   showMsg: boolean = false;
+  loginCheck: Boolean
 
   constructor(private contactUsService: ContactUsService, private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
   }
+
   logout(){
     this.auth.logout()
     this.router.navigate(["/login"])
   }
+
   addNewQuery() {
 
     console.log("form email: " + this.email)
@@ -44,5 +47,22 @@ export class ContactUsComponent implements OnInit {
     () => {
       console.log("Failed to submit")
     })
+  }
+
+  getCurrentUser() {
+    this.auth.currentUser.subscribe(data => {
+      if(data != null) {
+        if(data.username != null) {
+          this.loginCheck = true
+        }
+        else {
+          this.loginCheck = false;
+        }
+      }
+      else {
+        this.loginCheck = false;
+      }
+    });
+    return this.loginCheck;
   }
 }

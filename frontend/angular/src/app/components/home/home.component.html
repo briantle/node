@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="/">Home</a>
+        <a class="nav-link active" href="/home">Home</a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="/sports">Sports</a>
@@ -20,10 +20,16 @@
               <a class="nav-link" href="/contactus">Contact Us</a>
       </li>
       <li class = "nav-item">
-        <a class = "nav-link" (click) = "logout()">Logout</a>
+        <a class = "nav-link" href = "/newslist">News List</a>
       </li>
       <li class = "nav-item">
-        <a class = "nav-link" href = "/newslist">News List</a>
+        <a class = "nav-link" [routerLink]="['/chat']">Chat</a>
+      </li>
+      <li class = "nav-item">
+        <a class = "nav-link" *ngIf="this.getCurrentUser() == false" [routerLink]="['/login']">Login</a>
+      </li>
+      <li class = "nav-item">
+        <a class = "nav-link" *ngIf="this.getCurrentUser() == true" (click) = "logout()">Logout</a>
       </li>
     </ul>
   </div> 
@@ -77,37 +83,7 @@
 
 <br>
 
-<div class="container">
-  <div class="row mt-2">
-    <div class="col-md-10">
-      <h4>Messages</h4>
-      <ul id="chat" class="list-group" *ngFor="let msg of messages">
-        <li class="list-group-item">
-          <b>{{ msg.username }}</b>
-          <br />
-          {{ msg.msg }}
-        <small class="float-right">{{ msg.time }}</small>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-2">
-      <h4>Users</h4>
-      <ul id="users" class="list-group" *ngFor="let user of users">
-        <li class="list-group-item">
-          {{ user }}
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <form id="msgForm" (submit)="onSubmit()">
-        <input type="text" id="msg" name="message" class="form-control" placeholder="Type Here..." [(ngModel)]="message">
-      </form>
-    </div>
-  </div>
-</div> <br> <br><br><br><br><br><br><br>
+<br> <br><br><br><br><br><br><br>
 <div><app-footer></app-footer></div>
 
         <!-- <div class="banner">

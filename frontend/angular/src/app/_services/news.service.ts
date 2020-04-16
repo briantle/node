@@ -21,7 +21,7 @@ getLatestNews(): Observable<News[]> {
 }
 
 getById(id: any): Observable<News> {
-  return this.http.get<News>(apiUrl + '/newslist' + id);
+  return this.http.get<News>(apiUrl + '/newslist/' + id);
 }
 
 update(id, news) {

@@ -18,16 +18,18 @@ export class NewsListComponent implements OnInit {
   searchText = '';
   @Input() userList: News;
   news: string [];
-
+  loginCheck: Boolean;
  
 
   constructor(private auth: AuthenticationService, private newsService: NewsService, private httpService: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
 
-    if (localStorage.getItem("currentUser").split('"')[3] != "admin"){
+    //Need to check if nothing is in local storage
+  
+  if (localStorage.getItem("currentUser").split('"')[3] != "admin" ) {
       alert("Unauthorized")
-      this.router.navigate(["/"])
+      this.router.navigate(["/home"])
     }
     else
     {
@@ -40,8 +42,29 @@ export class NewsListComponent implements OnInit {
           console.log('cant find data')
           })
     }
-  }   
+  }  
+  
+  getCurrentUser() {
+    this.auth.currentUser.subscribe(data => {
+      if(data != null) {
+        if(data.username != null) {
+          this.loginCheck = true
+        }
+        else {
+          this.loginCheck = false;
+        }
+      }
+      else {
+        this.loginCheck = false;
+      }
+    });
+    return this.loginCheck;
+  }
 
+  logout(){
+    this.auth.logout()
+    this.router.navigate(["/login"])
+  }
 
 
 

@@ -10,7 +10,8 @@ import { AuthenticationService } from 'src/app/_services';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
-
+  
+  loginCheck: Boolean
   lat: number = 42.073100;
   lng: number = -83.212700;
 
@@ -22,6 +23,23 @@ export class AboutUsComponent implements OnInit {
   logout(){
     this.auth.logout()
     this.router.navigate(["/login"])
+  }
+
+  getCurrentUser() {
+    this.auth.currentUser.subscribe(data => {
+      if(data != null) {
+        if(data.username != null) {
+          this.loginCheck = true
+        }
+        else {
+          this.loginCheck = false;
+        }
+      }
+      else {
+        this.loginCheck = false;
+      }
+    });
+    return this.loginCheck;
   }
 
 }
