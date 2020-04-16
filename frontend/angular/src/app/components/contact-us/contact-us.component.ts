@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactUsService } from 'src/app/_services/contact-us.service';
 import { ContactUs } from 'src/app/models/contact-us';
 import {Router} from '@angular/router';
+import { AuthenticationService } from 'src/app/_services';
 
 @Component({
   selector: 'app-contact-us',
@@ -14,11 +15,14 @@ export class ContactUsComponent implements OnInit {
   query: string = '';
   showMsg: boolean = false;
 
-  constructor(private contactUsService: ContactUsService, private router: Router) { }
+  constructor(private contactUsService: ContactUsService, private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
   }
-
+  logout(){
+    this.auth.logout()
+    this.router.navigate(["/login"])
+  }
   addNewQuery() {
 
     console.log("form email: " + this.email)

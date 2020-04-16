@@ -4,3 +4,6 @@ const config = {
     "MONGODB_URL": "mongodb+srv://admin:admin@cluster0-eazt9.mongodb.net/test?retryWrites=true&w=majority"
 }
 module.exports = config
+
+// api call
+// api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}
